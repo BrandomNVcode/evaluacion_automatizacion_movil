@@ -35,7 +35,12 @@ public class SearchDetailsScreen extends PageObject {
 
     public void enterSearchInput(String place){
         this.searchDetailInput.click();
-        this.searchDetailInput.sendKeys(place+"\n"); // para simular el enter se agrega "\n"
+        this.searchDetailInput.sendKeys(place);
+        String cmd = "adb shell input keyevent 66";
+        try {
+            Runtime.getRuntime().exec(cmd);
+        }catch(Exception e) {
+        }
     }
 
     public void clickFirstOption(){
